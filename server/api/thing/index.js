@@ -12,19 +12,19 @@ router.put('/:id', controller.update);
 router.patch('/:id', controller.update);
 router.delete('/:id', controller.destroy);
 
-console.log('\n********************************************');
-console.log('\t\tEXPRESS');
-console.log('********************************************\n');
-for (var key in router) {
-    if (router.hasOwnProperty(key)) {
-        var val = router[key];
-        if (val.route) {
-            val = val.route;
-            var _o = {};
-            _o[val.stack[0].method] = [val.path, val.path];
-            // table.push(_o);
-        }
-    }
-}
+// console.log('\n********************************************');
+// console.log('\t\tEXPRESS');
+// console.log('********************************************\n');
+// for (var key in router.stack) {
+//     // if (router.hasOwnProperty(key)) {
+//         var val = router.stack[key];
+//         if (val.route) {
+//             val = val.route;
+//             var _o = {};
+//             _o[val.stack[0].method] = [val.path, val.path];
+//             console.log(_o);
+//         }
+//     // }
+// }
 
 module.exports = router;
