@@ -28,8 +28,6 @@ var server = http.createServer(app);
 require('./config/express')(app);
 require('./routes')(app);
 
-var zzzz = app._router.stack;
-
 // Start server
 function startServer() {
     server.listen(config.port, config.ip, function () {

@@ -5,15 +5,16 @@
 'use strict';
 
 var errors = require('./components/errors'),
-    path = require('path');
+    path = require('path'),
+    docApi = require('./api/doc/doc-api'),
+    apiVersion = '/api/';
 
 
 module.exports = function (app) {
-    // Insert routes belowç
-    var router;
-     router =  require('./api/thing');
-    app.use('/api/things', router);
-    docApi(router);
+    // Insert routes below
+   
+    app.use(apiVersion + 'things', require('./api/thing'));
+    app.use('/api-docs', require('./api/doc'));
     // app.use('/api/users', require('./api/user'));
 
     // app.use('/auth', require('./auth'));
@@ -27,23 +28,7 @@ module.exports = function (app) {
         .get((req, res) => {
             res.sendFile(path.resolve(app.get('appPath') + '/index.html'));
         });
-}
 
 
-function docApi(router) {
-
-    console.log('\n********************************************');
-    console.log('\t\tEXPRESS');
-    console.log('********************************************\n');
-    for (var key in router.stack) {
-        // if (router.hasOwnProperty(key)) {
-        var val = router.stack[key];
-        if (val.route) {
-            val = val.route;
-            var _o = {};
-            _o[val.stack[0].method] = [val.path, val.path];
-            console.log(_o);
-        }
-        // }
-    }
+    docApi.getApiDocumentation();
 }

@@ -2,6 +2,7 @@
 
 var express = require('express');
 var controller = require('./thing.controller');
+var docApi = require('../doc/doc-api');
 
 var router = express.Router();
 
@@ -12,19 +13,6 @@ router.put('/:id', controller.update);
 router.patch('/:id', controller.update);
 router.delete('/:id', controller.destroy);
 
-// console.log('\n********************************************');
-// console.log('\t\tEXPRESS');
-// console.log('********************************************\n');
-// for (var key in router.stack) {
-//     // if (router.hasOwnProperty(key)) {
-//         var val = router.stack[key];
-//         if (val.route) {
-//             val = val.route;
-//             var _o = {};
-//             _o[val.stack[0].method] = [val.path, val.path];
-//             console.log(_o);
-//         }
-//     // }
-// }
+docApi.addDocumentation('things', router);
 
 module.exports = router;

@@ -4,7 +4,8 @@
 
 class MainController {
 
-  constructor($http) {
+  constructor($http, $rootScope) {
+    this.apiDocs = $rootScope.apiDocs;
     this.$http = $http;
     this.awesomeThings = [];
 
