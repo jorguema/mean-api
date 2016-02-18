@@ -4,23 +4,6 @@
 
 'use strict';
 
-// import express from 'express';
-// import favicon from 'serve-favicon';
-// import morgan from 'morgan';
-// import compression from 'compression';
-// import bodyParser from 'body-parser';
-// import methodOverride from 'method-override';
-// import cookieParser from 'cookie-parser';
-// import errorHandler from 'errorhandler';
-// import path from 'path';
-// import lusca from 'lusca';
-// import config from './environment';
-// import passport from 'passport';
-// import session from 'express-session';
-// import connectMongo from 'connect-mongo';
-// import mongoose from 'mongoose';
-// var mongoStore = connectMongo(session);
-
 var express = require('express');
 var favicon = require('serve-favicon');
 var morgan = require('morgan');

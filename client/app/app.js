@@ -1,9 +1,6 @@
 'use strict';
 
 var app = angular.module('rankingsBackendApp', [
-    'rankingsBackendApp.auth',
-    'rankingsBackendApp.admin',
-    'rankingsBackendApp.constants',
     'ngCookies',
     'ngResource',
     'ngSanitize',
