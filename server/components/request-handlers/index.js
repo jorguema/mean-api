@@ -25,5 +25,11 @@ module.exports = {
             }
             return entity;
         };
+    },
+    handleRemove: function (res) {
+        return function (entity) {
+            if (entity)
+                res.status(204).end();
+        };
     }
 };

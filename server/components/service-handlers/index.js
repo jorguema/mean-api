@@ -1,4 +1,5 @@
 'use strict';
+var _ = require('lodash');
 
 module.exports = {
     successCallback: function () {
@@ -20,5 +21,22 @@ module.exports = {
             }
             return entity;
         };
+    },
+    saveCallback: function (updates) {
+        return function (entity) {
+            if (!entity) return null;
+            var updated = _.merge(entity, updates);
+            return updated.saveAsync()
+                .spread(updated => {
+                    return updated;
+                });
+        };
+    },
+    removeCallback: function () {
+        return function (entity) {
+            if (entity) {
+                return entity.removeAsync();
+            }
+        }
     }
 };
