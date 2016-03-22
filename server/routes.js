@@ -14,6 +14,7 @@ module.exports = function (app) {
     // Insert routes below
    
     app.use(apiVersion + 'things', require('./api/thing'));
+    app.use(apiVersion + 'rankings', require('./api/ranking'));
     app.use('/api-docs', require('./api/doc'));
     // app.use('/api/users', require('./api/user'));
 
